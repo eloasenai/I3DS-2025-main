@@ -4,12 +4,12 @@
   margin: 4px auto;
 
   & button {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 0;
     background: #fff var(--switch-bg-url) no-repeat center;
-
+    padding: 20;
     position: absolute;
     z-index: 1;
     top: 50%;
@@ -34,6 +34,10 @@
 }
 
 .light #switch button {
+  animation: slide-in 0.2s forwards;
+}
+
+.dark #switch button {
   animation: slide-in 0.2s forwards;
 }
 
