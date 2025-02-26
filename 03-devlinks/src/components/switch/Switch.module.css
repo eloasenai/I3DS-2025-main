@@ -4,8 +4,8 @@
   margin: 4px auto;
 
   & button {
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     border: 0;
     background: #fff var(--switch-bg-url) no-repeat center;
