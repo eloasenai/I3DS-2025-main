@@ -1,6 +1,5 @@
 import "./App.css";
-import fotolight from "./img/perfil light.jpg"
-import fotodark from "./img/perfil dark.jpg";
+import foto from "./img/perfil light.jpg"
 
 
 import Perfil from "./components/perfil/perfil";
@@ -19,16 +18,13 @@ const troca = () => {
 
   return (
     <div id="App" className={isLight ? "light" : ""}>     
-        <Perfil fotoPerfil={fotolight}>@eloaSilva</Perfil>
-
-        <div id="App" className={isDark ? "dark" : ""}>    
-        <Perfil fotoPerfil={fotodark}>@eloaSilva</Perfil>
+        <Perfil fotoPerfil={foto}>@eloaSilva</Perfil>
 
         
         <Switch troca={troca} isLight={isLight} />
         
         <ul>
-      <Links Link={"https://github.com/"}>GitHub</Links>
+      <Links Link={"https://github.com/eloasenai/I3DS-2025-main/tree/main/03-devlinks"}>GitHub</Links>
       <Links Link={"https://www.instagram.com/"}>Instagram</Links>
       <Links Link={"https://www.youtube.com/"}>Youtube</Links>
       <Links Link={"https://www.linkedin.com/feed/"}>Linkedin</Links>
@@ -36,7 +32,7 @@ const troca = () => {
 
         <div id="socialLinks">
           <SocialLinks 
-          Link={"https://github.com/"}
+          Link={"https://github.com/eloasenai/I3DS-2025-main/tree/main/03-devlinks"}
           icon={"logo-github"}
           />
           <SocialLinks

@@ -13,7 +13,7 @@
   --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(255, 255, 255, 0.5);
   --switch-bg-url: url(./img/MoonStars.svg);
-  --highlight-color: rgba(164, 109, 109, 0.2);
+  --highlight-color: rgba(255, 255, 255, 0.2);
 }
 
 .light {
@@ -47,12 +47,17 @@
 
 #links ul {
   list-style: none;
-  display: flex;
+  display: block;
   flex-direction: column;
   gap: 16px;
-  padding: 20px;
+  padding: 24px;
 }
-
+ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 #socialLinks {
   display: flex;
   justify-content: center;

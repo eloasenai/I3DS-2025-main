@@ -29,15 +29,11 @@
     border: 1px solid var(--stroke-color);
     border-radius: 999px;
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+   webkit-backdrop-filter: blur(4px);
   }
 }
 
 .light #switch button {
-  animation: slide-in 0.2s forwards;
-}
-
-.dark #switch button {
   animation: slide-in 0.2s forwards;
 }
 
