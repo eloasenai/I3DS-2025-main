@@ -1,60 +1,71 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import MovieCard from "./componentes/MovieCard/MovieCards.jsx";
-import Footer from "./componentes/footer/footer.jsx";
-//import logo from
+import Footer from "./components/footer/Footer";
+import MovieCard from "./components/movieCard/MovieCard";
+import Logo from "./assets/devflix.png";
+import lupa from "./assets/search.svg"
 
 const App = () => {
-const [search,setSearch] = useState("");
-const [movies,setMovies] = useState([]);
+  const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
 
-//utilizando chave de API do arquivo .env
-const apikey = import.meta.env.VITE_OMDB_API_KEY
-const apiUrl = 'https://omdbarpi.com/?apikey=${apikey';
+  //Utilizando chave de API do arquivo .env
+  const apiKey = import.meta.env.VITE_OMDB_API_KEY;
+  const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
-useEffect(() => {
-  searchMovies("Batman");
-}, []);
+  //Alimentando com dados para não ficar nulo com useEffect
+  useEffect(() => {
+    searchMovies("Batman");
+  }, []);
 
-//criando a conexão com a API e trazendo informações
-const searchMovies= async (title) => {
-const response = await fetch('${apiUrl}&s=${title}');
-const data =await response.json();
+  //criando a conexão com a API e trazendo informações
+  const searchMovies = async (title) => {
+    const response = await fetch(`${apiUrl}&s=${title}`);
+    const data = await response.json();
 
-//alimentando o movies
-setMovies(data.Search);
-};
+    //alimentando o movies
+    setMovies(data.Search);
+  };
+
+  //e = evento | ao clicar ou digitar acontece algo
+  const handleKeyPress = (e) => {
+    e.key === "Enter" && searchMovies(search);
+  };
+
   return (
     <div id="app">
-      <h1>Olá</h1>
-      <img className="logo" src={"https://placehold.co/200x200"} alt="" />
+      <img className="logo" src={Logo} alt="" />
 
       <div className="search">
-        <import type="text" placeholder="pesquisar por filmes" />
-        <img src={"https://placehold.co/20x20"} alt="" />
+        <input
+          onKeyDown={handleKeyPress}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Pesquise por filmes"
+        />
+        <img
+          onClick={() => searchMovies(search)}
+          src={lupa}
+          alt=""
+        />
       </div>
 
-      {movies.map((movie, index) => (
-        <MovieCard key={index} {...movie} />
-      ))}
+      {movies?.length > 0 ? (
+        <div className="container">
+          {movies.map((movie, index) => (
+            <MovieCard key={index} opUrl{opUrl}{...movie} />
+          ))}
+        </div>
+      ) : (
+        <h2 className="empty">😢 Filme não encontrado 😢</h2>
+      )}
 
       <Footer
-        DEVName={"Eloá Franco dos Reis Silva "}
-        DEVLink={"https://github.com/eloasenai"}
-      />
-      <MovieCard
-        year={2024}
-        type={"Movie"}
-        title={"Coraline"}
-        poster={"https://placehold.co/300x444"}
-      />
-      <MovieCard
-        year={2023}
-        type={"Movie"}
-        title={"Noiva Cadaver"}
-        poster={"https://placehold.co/300x444"}
+        devName={" Eloá franco "}
+        devLink={"https://github.com/eloasenai"}
       />
     </div>
   );
 };
+
 export default App;
