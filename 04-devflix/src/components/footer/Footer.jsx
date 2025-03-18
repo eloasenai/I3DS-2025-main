@@ -1,14 +1,14 @@
-import "./footer.module.css";
+import styles from "./Footer.module.css";
 
 const Footer = (props) => {
   return (
     <footer>
-        <p>
-            Feito com ❤️ por Eloá franco <a href={props.DEVLink} target="_blank">{props.DEVName}</a>
-        </p>
+      <p>
+        Feito com ❤️ por
+        <a href={props.devLink}>{props.devName}</a>
+      </p>
     </footer>
-   
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
