@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./components/footer/Footer";
-import MovieCard from "./components/movieCard/MovieCard";
+import MovieCard from "./components/MovieCard/MovieCard";
 import Logo from "./assets/devflix.png";
 import lupa from "./assets/search.svg"
 
@@ -53,7 +53,7 @@ const App = () => {
       {movies?.length > 0 ? (
         <div className="container">
           {movies.map((movie, index) => (
-            <MovieCard key={index} opUrl{opUrl}{...movie} />
+            <MovieCard key={index} apiUrl={apiUrl}{...movie} />
           ))}
         </div>
       ) : (
